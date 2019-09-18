@@ -2,8 +2,8 @@
 public class methods {
 
 	
-	 //FUNGERER. den finner 3 like og fjerner dei to ytterste
-	public static void threeInARow(int [][] board){
+	 
+	public static void threeInARowOld(int [][] board){
 		
 			
 			for(int c = 0; c < board.length; c++) {
@@ -39,8 +39,44 @@ public class methods {
 		}
 	
 	
-	 //FUNGERER. den finner 3 like og fjerner dei to ytterste
-		public static void threeInARowNY(Board board){
+	public static void sandwichOLD(int [][] board) {
+	
+		for(int c = 0; c < board.length; c++) {
+			
+			for(int r = 0; r < board.length-2; r++) {
+	
+				
+				
+				
+				int oneColumn = board[c] [r];
+				int twoColumn = board[c] [r+1];
+				int threeColumn = board[c][r+2];
+				
+				int oneRow = board[r][c];
+				int twoRow = board[r+1][c];
+				int threeRow = board[r+2][c];
+			
+				//System.out.println("Column: " + oneColumn + twoColumn);
+				//System.out.println("Row: " + oneRow);
+			
+			if(oneRow==threeRow) {
+				//System.out.println("Tre like på rader!!");
+				board[r+1][c] = 00;
+				
+			}
+			if(oneColumn==threeColumn) {
+				//System.out.println("Tre like på kolonner!!");
+			;
+				board[c][r+1] = 00;;
+				
+			}
+		}
+	}
+	}
+	
+	
+	 //FUNGERER
+		public static void threeInARow(Board board){
 			
 				Square[][] squares = board.getSquares(); 
 				for(int c = 0; c < squares.length; c++) {
@@ -60,20 +96,59 @@ public class methods {
 					
 					if(oneRow==twoRow && twoRow==threeRow) {
 						//System.out.println("Tre like på rader!!");
-						squares[r][c].setBlacked(true);
-						squares[r+2][c].setBlacked(true);
-						
+						squares[r][c].setColour(ColourEnum.BLACK);
+						squares[r+2][c].setColour(ColourEnum.BLACK);
+					
 					}
 					if(oneColumn==twoColumn && twoColumn==threeColumn) {
 						//System.out.println("Tre like på kolonner!!");
-						squares[c][r].setBlacked(true);
-						squares[c][r+2].setBlacked(true);
+						squares[c][r].setColour(ColourEnum.BLACK);
+						squares[c][r+2].setColour(ColourEnum.BLACK);
 						
 					}
 				}
 			}
 		}
-		private void sandwich() {
+		
+		
+		//fungerer
+		public static void sandwich(Board board) {
+			
+			
+			Square[][] squares = board.getSquares(); 
+			for(int c = 0; c < squares.length; c++) {
+				
+				for(int r = 0; r < squares.length-2; r++) {
+		
+					
+					
+					
+					int oneColumn = squares[c] [r].getNumber();
+					int twoColumn = squares[c] [r+1].getNumber();
+					int threeColumn = squares[c][r+2].getNumber();
+					
+					int oneRow = squares[r][c].getNumber();
+					int twoRow = squares[r+1][c].getNumber();
+					int threeRow = squares[r+2][c].getNumber();
+				
+					//System.out.println("Column: " + oneColumn + twoColumn);
+					//System.out.println("Row: " + oneRow);
+				
+				if(oneRow==threeRow) {
+					//System.out.println("Tre like på rader!!");
+					squares[r+1][c].setColour(ColourEnum.COLOURED);
+					
+				}
+				if(oneColumn==threeColumn) {
+					//System.out.println("Tre like på kolonner!!");
+				;
+					squares[c][r+1].setColour(ColourEnum.COLOURED);
+					
+				}
+			}
+				
+		}
+			board.setSquares(squares);
 			
 		}
 		
@@ -83,21 +158,20 @@ public class methods {
        
        private void checkForDuplicateNumbers(Board board) {
 
+    	   int blackedNumber;
 			Square[][] squares = board.getSquares(); 
 			for(int c = 0; c < squares.length; c++) {
 				
 				for(int r = 0; r < squares.length-2; r++) {
 		
 					//finn ein svart
-					if(squares[c][r].isBlacked()) {
-						int blackedNumber = squares[c][r].getNumber();
-					}
+					if(squares[c][r].getColour() == ColourEnum.BLACK) {
+						blackedNumber = squares[c][r].getNumber();
 					//sjekk om resten av rekka har samme nummer som svart
-					if(blackedNumber == [c][r].getNumber()) {
+					if(blackedNumber == squares[c][r].getNumber()) {
 						 
 					}
-					
-					
+					}
 					
 					
 					int oneColumn = squares[c] [r].getNumber();
@@ -113,14 +187,14 @@ public class methods {
 				
 				if(oneRow==twoRow && twoRow==threeRow) {
 					//System.out.println("Tre like på rader!!");
-					squares[r][c].setBlacked(true);
-					squares[r+2][c].setBlacked(true);
+					squares[r][c].setColour(ColourEnum.BLACK);
+					squares[r+2][c].setColour(ColourEnum.BLACK);
 					
 				}
 				if(oneColumn==twoColumn && twoColumn==threeColumn) {
 					//System.out.println("Tre like på kolonner!!");
-					squares[c][r].setBlacked(true);
-					squares[c][r+2].setBlacked(true);
+					squares[c][r].setColour(ColourEnum.BLACK);
+					squares[c][r+2].setColour(ColourEnum.BLACK);
 					
 				}
 			}

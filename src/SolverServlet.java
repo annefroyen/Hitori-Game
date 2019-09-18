@@ -11,8 +11,8 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang3.text.WordUtils;
 
 
-@WebServlet("/game")
-public class GameServlet extends HttpServlet {
+@WebServlet("/solver")
+public class SolverServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -21,7 +21,7 @@ public class GameServlet extends HttpServlet {
 			throws ServletException, IOException {
 	
 	
-		request.getRequestDispatcher("WEB-INF/game.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/solver.jsp").forward(request, response);
 	
 	}
 
@@ -34,15 +34,16 @@ public class GameServlet extends HttpServlet {
 		Board board = (Board) sesjon.getAttribute("board");
 		
 
-        if (request.getParameter("check") != null) {
+        if (request.getParameter("solve") != null) {
             methods.sandwich(board);
+            
             ///board sine squares blir oppdatert, last inn siden på nytt og tegn ny tabell.
             request.getSession().setAttribute("board", board);
-            response.sendRedirect("game");
+            response.sendRedirect("solver");
         } else if (request.getParameter("hint") != null) {
             System.out.println(board.getSize());
-            response.sendRedirect("game");
-        } else if (request.getParameter("solve") != null) {
+            response.sendRedirect("solver");
+        } else if (request.getParameter("slow solve") != null) {
             //istedenfor å skrive ut in tabellen, skal den skrive ut solved tabellen med rett farge
         	
         } else {
@@ -51,5 +52,4 @@ public class GameServlet extends HttpServlet {
 			
 		
 	}
-
 }

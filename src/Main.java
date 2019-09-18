@@ -15,15 +15,6 @@ public class Main {
 	    { 
 
 		 
-		 //Create board
-		 
-		 //solve board step by step
-		 
-		 
-		 //
-		 
-		 
-		 
 	// nytt 5x5 brett
 	int [][] board = new int [5][5];
 
@@ -37,12 +28,12 @@ public class Main {
 	//Stacc board]
 	
 	int[][] stacc = {
-		{5,2,1,6,2,5},
-		{3,1,4,6,6,6},
+		{5,2,5,6,2,5},
+		{3,1,4,6,7,6},
 		{4,2,3,4,8,3},
-		{4,5,6,3,6,2},
+		{6,5,6,3,6,2},
 		{4,4,3,3,4,5},
-		{6,4,6,5,3,3}
+		{6,4,6,3,5,3}
 		
 	};
 
@@ -57,9 +48,9 @@ public class Main {
 	System.out.println(Arrays.deepToString(stacc));
 
 	
-	threeInARow(stacc);
-	// Start teknikkar:
 	
+	// Start teknikkar:
+	methods.sandwichOLD(stacc);
 	
 	System.out.println("Board:");
 	
@@ -69,6 +60,10 @@ public class Main {
         }
         System.out.println("\n");
     }
+	   
+	   Board newBoard = new Board(5,0);
+	  //int[] list = Board.getIntArray(newBoard);
+	 // System.out.println(Arrays.toString(list));
 
 
 	/*

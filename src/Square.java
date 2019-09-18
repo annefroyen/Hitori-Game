@@ -2,37 +2,23 @@
 public class Square {
 	
 	private int number;
-	private boolean blacked;
-	private boolean circled;
+	private ColourEnum colour;
 	
-	public Square(int number, boolean blacked, boolean circled) {
+	public Square(int number, ColourEnum colour) {
 		this.number = number;
-		this.blacked = blacked;
-		this.circled = circled;
+		this.colour = colour;
 	}
 	
 	public int getNumber() {
 		return number;
 	}
 
-	public void setNumber(int number) {
-		this.number = number;
+	public ColourEnum getColour() {
+		return colour;
 	}
 
-	public boolean isBlacked() {
-		return blacked;
-	}
-
-	public void setBlacked(boolean blacked) {
-		this.blacked = blacked;
-	}
-
-	public boolean isCircled() {
-		return circled;
-	}
-
-	public void setCircled(boolean circled) {
-		this.circled = circled;
+	public void setColour(ColourEnum colour) {
+		this.colour = colour;
 	}
 	
 
