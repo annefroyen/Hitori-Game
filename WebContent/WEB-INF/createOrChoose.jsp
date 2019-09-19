@@ -3,45 +3,51 @@
 
 <!DOCTYPE html>
 <html>
-<style>
-body {
-	background-image: linear-gradient(to right, white 50%, black 50%); 
-	
-}
-
-.choose {
-	text-align: center;
-    vertical-align: middle;
-	float: left;
-	width: 50%;
-	
-}
-
-.create {
-	text-align: center;
-	vertical-align: middle;
-	float: right;
-	width: 50%;
-	color: white;
-
-}
-}
-</style>
 <head>
-<meta charset="ISO-8859-1">
-
+<link href='https://fonts.googleapis.com/css?family=Bungee Shade'
+	rel='stylesheet'>
 <link rel="stylesheet"
 	href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-<title>Hitori Game</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+
+<style>
+* {
+	box-sizing: border-box;
+}
+
+.column {
+	float: left;
+	width: 50%;
+	height: 100vh;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	.column {
+		width: 100%;
+		height: 50vh;
+	}
+}
+
+.header {
+	font-size: 10vw;
+	font-family: 'Bungee Shade', Times, serif;
+}
+
+
+</style>
 </head>
+
 <body>
 
-
-
-	<div class="choose">
-		<h1>Choose</h1>
-
-
+	<div class="row">
+		<div class="column" style="background-color: white">
+			
+			
+			<h1 class="header">CHOOSE</h1>
+				
 		<form method="post" class="pure-form pure-form-aligned">
 			<fieldset>
 
@@ -71,12 +77,11 @@ body {
 
 			</fieldset>
 		</form>
+		</div>
 
-	</div>
 
-
-	<div class="create">
-		<h1>Create</h1>
+		<div class="column" style="background-color: black;">
+			<h1 class="header" style="color: white">CREATE</h1>
 		
 		
 <form method="post" class="pure-form pure-form-aligned">
@@ -93,9 +98,8 @@ body {
 			
 		</fieldset>
 	</form>
+		</div>
 	</div>
 
 </body>
-
-
 </html>

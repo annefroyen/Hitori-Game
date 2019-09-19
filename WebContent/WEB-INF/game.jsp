@@ -5,17 +5,17 @@
 <head>
 <title>Hitori Game</title>
 <style>
-.redBackground {
+.COLOURED {
 	background: #e6503f;
 	color: white;
 }
 
-.blackBackground {
+.BLACK {
 	background: #2b2b2b;
 	color: white;
 }
 
-.whiteBackground {
+.WHITE {
 	background: white;
 }
 
@@ -55,7 +55,7 @@ div>div {
 					<c:forEach items="${tall}" var="cell">
 					
 				 
-					<td id ="element" class="blackBackground" onclick="changeColour(this)">${cell.number}</td>
+					<td id ="element" class="${cell.colour}" onclick="changeColour(this)">${cell.number}</td>
 			
 					</c:forEach>
 				</tr>
@@ -97,14 +97,15 @@ function myFunction(){
 }
 
 function changeColour(element) {
-	 if (element.className == "blackBackground") {
-		 element.className = "redBackground"; 
-    }else if(element.className == "redBackground") {
-		 element.className = "whiteBackground"; 
-    }else if(element.className = "whiteBackground"){
-    	element.className = "blackBackground";
-    }
+	if (element.className == "BLACK") {
+		element.className = "COLOURED";
+	} else if (element.className == "COLOURED") {
+		element.className = "WHITE";
+	} else if (element.className = "WHITE") {
+		element.className = "BLACK";
 	}
+}
+	
 
 function findColour(element){
 	if(element.isBlacked()){

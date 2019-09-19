@@ -20,8 +20,9 @@ public class GameServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
+		
 	
-		request.getRequestDispatcher("WEB-INF/game.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/GGame.jsp").forward(request, response);
 	
 	}
 
@@ -35,7 +36,7 @@ public class GameServlet extends HttpServlet {
 		
 
         if (request.getParameter("check") != null) {
-            methods.sandwich(board);
+            //methods.sandwich(board);
             ///board sine squares blir oppdatert, last inn siden på nytt og tegn ny tabell.
             request.getSession().setAttribute("board", board);
             response.sendRedirect("game");

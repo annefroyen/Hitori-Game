@@ -126,7 +126,7 @@ public class Board {
 	private Square[][] squares_Solution;
 	private int size;
 
-	public Board(Square[][] squares, Square[][] squares_Solution, ArrayList<Integer> numbers, int size) {
+	public Board(Square[][] squares, Square[][] squares_Solution, int size) {
 		this.squares = squares;
 		this.squares_Solution = squares_Solution;
 		this.size = size;

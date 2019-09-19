@@ -1,5 +1,7 @@
 
 
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -8,21 +10,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
-@WebServlet("/createOrChoose")
-public class CreateOrChooseServlet extends HttpServlet {
+
+
+@WebServlet("/start")
+public class StartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/createOrChoose.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/start.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
 		
 		
 		//choose
@@ -49,25 +51,26 @@ public class CreateOrChooseServlet extends HttpServlet {
       	*/
 		
 		
-      	response.sendRedirect("solver");
+      //	response.sendRedirect("solver");
 		
   
 		
-                if (request.getParameter("choose") != null) {
+                if (request.getParameter("solve") != null) {
                 	
                 	
                 	
-                    response.sendRedirect("solveOrPlay");
+                    response.sendRedirect("solver");
                     
                     
-        		}else if(request.getParameter("create") != null) {
+        		}else if(request.getParameter("play") != null) {
         			
         			
         			response.sendRedirect("game");
         		}
         			
                 
-			
+               
 	}
+
 
 }
