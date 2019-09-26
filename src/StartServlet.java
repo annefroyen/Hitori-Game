@@ -1,18 +1,12 @@
 
-
-
-
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-
 
 @WebServlet("/start")
 public class StartServlet extends HttpServlet {
@@ -25,52 +19,37 @@ public class StartServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		//choose
-		
-                String size =  (String) request.getParameter("size"); 
-				Integer s = Integer.parseInt(size);
- 
-				Board board = new Board();
+
+		if (request.getParameter("size") != null) {
+
+			String size = (String) request.getParameter("size");
+			Integer s = Integer.parseInt(size);
+
+			Board board = new Board();
+
+			board.getBoard(s);
+
+			request.getSession().setAttribute("board", board);
+
+		} else if (request.getParameter("createInput") != null) {
 			
-						
-				board.getBoard(s);
+			String numbers = (String) request.getParameter("createInput");
 
-				
-				request.getSession().setAttribute("board", board);
-               
-               
-               
-            
-                
-		//Create
-		/* 
-		Board createBoard = new Board("1 2 3 4 5 6 7 8 9");
-      	request.getSession().setAttribute("board", createBoard);
-      	*/
-		
-		
-      //	response.sendRedirect("solver");
-		
-  
-		
-                if (request.getParameter("solve") != null) {
-                	
-                	
-                	
-                    response.sendRedirect("solver");
-                    
-                    
-        		}else if(request.getParameter("play") != null) {
-        			
-        			
-        			response.sendRedirect("game");
-        		}
-        			
-                
-               
+			Board board = Board.createBoard(numbers);
+
+			request.getSession().setAttribute("board", board);
+		}
+
+		if (request.getParameter("solve") != null) {
+
+			response.sendRedirect("solver");
+
+		} else if (request.getParameter("play") != null) {
+
+			response.sendRedirect("game");
+
+		}
+
 	}
-
 
 }
