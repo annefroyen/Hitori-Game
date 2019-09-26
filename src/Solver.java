@@ -306,31 +306,34 @@ public class Solver {
 			for (int c = 0; c < board.getSize(); c++) {
 
 				// row
-			  Square currentRow = squares[r][c];
+				Square currentRow = squares[r][c];
 
-				for (int i = 0; i < board.getSize()-1; i++) {
+				for (int i = 0; i < board.getSize() - 1; i++) {
 
 					Square searchOne = squares[r][i];
-					Square searchTwo = squares[r][i+1];
+					Square searchTwo = squares[r][i + 1];
 
-					if (currentRow.getNumber() == searchOne.getNumber() && searchOne.getNumber() == searchTwo.getNumber() && searchOne != currentRow && searchTwo != currentRow) {
+					if (currentRow.getNumber() == searchOne.getNumber()
+							&& searchOne.getNumber() == searchTwo.getNumber() && searchOne != currentRow
+							&& searchTwo != currentRow) {
 						squares[r][c] = new Square(squares[r][c].getNumber(), ColourEnum.BLACK);
-					
+
 					}
 
 				}
 
 				Square currentColumn = squares[c][r];
 
-				for (int i = 0; i < board.getSize()-1; i++) {
+				for (int i = 0; i < board.getSize() - 1; i++) {
 
-					
 					Square searchOne = squares[i][r];
-					Square searchTwo = squares[i+1][r];
+					Square searchTwo = squares[i + 1][r];
 
-					if (currentColumn.getNumber() == searchOne.getNumber() && searchOne.getNumber() == searchTwo.getNumber() && searchOne != currentColumn && searchTwo != currentColumn) {
+					if (currentColumn.getNumber() == searchOne.getNumber()
+							&& searchOne.getNumber() == searchTwo.getNumber() && searchOne != currentColumn
+							&& searchTwo != currentColumn) {
 						squares[c][r] = new Square(squares[c][r].getNumber(), ColourEnum.BLACK);
-					
+
 					}
 
 				}
@@ -511,7 +514,6 @@ public class Solver {
 
 	public static boolean unshading(Board board) {
 
-		// fargelegg ruter rundt svarte ruter
 		boolean runs = false;
 		Square[][] squares = board.getSquares();
 		for (int r = 0; r < board.getSize(); r++) {
@@ -676,9 +678,6 @@ public class Solver {
 
 	public static void quadMiddle(Board board) {
 
-		
-
-
 		Square[][] squares = board.getSquares();
 		for (int r = 0; r < board.getSize() - 2; r++) {
 			for (int c = 0; c < board.getSize() - 2; c++) {
@@ -708,27 +707,11 @@ public class Solver {
 
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    
-	
 	public static void middleClose(Board board) {
 
 		Square[][] squares = board.getSquares();
 
 		int s = board.getSize();
-		
 
 		for (int r = 0; r < board.getSize(); r++) {
 			for (int c = 0; c < board.getSize(); c++) {
@@ -1074,19 +1057,11 @@ public class Solver {
 
 	}
 
-	public static void advancedTechniqueOneFour(Board board) {
 
-	}
-
-	public static void advancedTechniqueOneFive(Board board) {
-
-	}
-
-
+	
 
 	// div
 
-	
 	public static String solutionAsList(Board board) {
 		Square[][] squares = board.getSquares();
 

@@ -50,22 +50,27 @@ public class MiddleCloseMaze {
 		}
 
 	}
-//går ikkje nedover/oppover??
+
 	public static void solveMaze(Board board) {
 
 		Square[][] squares = board.getSquares();
+		int size = squares.length* squares.length;
 		int s = board.getSize();
 		int sol[][] = new int[s][s];
+		System.out.println(s);
 		
-		for (int i = 0; i < s; i--) {
-		// top to bottom
-					if (solveMazeUtil(squares, 0, i, sol, s - 1, 666)) {
+		
+		for (int i = size-1; i >=0; i--) {
+	
+			 System.out.println("for loop 1");
+			 
+			    	if (solveMazeUtil(squares, 0, i, sol, s - 1, 666)) {
 						squares[whiteSquareRow][whiteSquareColumn] = new Square(
 								squares[whiteSquareRow][whiteSquareColumn].getNumber(), ColourEnum.COLOURED);
 						 System.out.println("top to bottom");
 					} 
-					/*
-					// bottom to top
+					
+				
 					if (solveMazeUtil(squares, s - 1, i, sol, 0, 666)) {
 
 						squares[whiteSquareRow][whiteSquareColumn] = new Square(
@@ -74,9 +79,9 @@ public class MiddleCloseMaze {
 					}
 		
 		}
-		for (int i = 0; i < s; i++) {
-
-			// left to right
+		for (int i = 0; i < size; i++) {
+			 System.out.println("for loop 2");
+		
 			if (solveMazeUtil(squares, i, 0, sol, 666, s - 1)) {
 				squares[whiteSquareRow][whiteSquareColumn] = new Square(
 						squares[whiteSquareRow][whiteSquareColumn].getNumber(), ColourEnum.COLOURED);
@@ -87,27 +92,24 @@ public class MiddleCloseMaze {
 				
 			} 
 			
-			// right to left
+		
 			if (solveMazeUtil(squares, 0, i, sol, s - 1, 666)) {
 				squares[whiteSquareRow][whiteSquareColumn] = new Square(
 						squares[whiteSquareRow][whiteSquareColumn].getNumber(), ColourEnum.COLOURED);
-				 System.out.println("top to bottom");
+				 System.out.println("right to left");
 
 				
-			} */
 			
+			}
 			
 		}
 
 		board.setSquares(squares);
 	}
 
-	/*
-	 * A recursive utility function to solve Maze problem
-	 */
+
 	public static boolean solveMazeUtil(Square[][] squares, int r, int c, int solution[][], int goalRow, int goalColumn) {
 
-		// if (x, y is goal) return true
 
 		if (goalRow == 666) {
 
@@ -124,27 +126,17 @@ public class MiddleCloseMaze {
 		}
 
 		
-		
-		
 		if (isSafe(squares, r, c) == true) {
-			// mark x, y as part of solution path
 			solution[r][c] = 1;
 			isWhite(squares, r, c);
 
-			/* Move forward in x direction */
+
 			if (solveMazeUtil(squares, r + 1, c, solution, goalRow, goalColumn))
 				return true;
 
-			/*
-			 * If moving in x direction doesn't give solution then Move down in y direction
-			 */
 			if (solveMazeUtil(squares, r, c + 1, solution, goalRow, goalColumn))
 				return true;
 
-			/*
-			 * If none of the above movements works then BACKTRACK: unmark x, y as part of
-			 * solution path
-			 */
 			solution[r][c] = 0;
 			return false;
 		}

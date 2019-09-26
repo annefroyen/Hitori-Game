@@ -214,7 +214,7 @@ float: right;
 			<input class="button_dark" type="submit" name="solve" value="solve" />
 			<input class="button_dark" type="submit" name="stepByStepSolve" value="step-by-step solve" <c:if test="${sbsDisabled == true}"><c:out value="disabled='disabled'"/></c:if> /> 
 			<input class="button_dark" type="submit" name="reset" value="reset" />
-			<input class="button_dark" type="submit" name="maze" value="maze" />
+		
 			
 			</p>
 			
@@ -260,8 +260,7 @@ float: right;
 		   
 		    <p style ="font-weight: bold;">Solution: <input type="text" value="${solver.solution}"><br> </p>
 		  
-		<p></p>
-		<a href="https://www.conceptispuzzles.com/index.aspx?uri=puzzle/hitori/techniques" target="_blank" style="float:right;">Source</a>
+		
 		
 		</div>
 

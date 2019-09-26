@@ -241,10 +241,10 @@ color: black;
 						<label for="radioEight">8x8</label> 
 						
 						
-						<a href="#solveOrPlay" class="button_light" type="submit"> Next</a>
+						
 						
 					</div>
-
+<a href="#solveOrPlay" class="button_light" type="submit"> Next</a>
 					
 
 				</div>
@@ -259,7 +259,7 @@ color: black;
 						placeholder=" Ex: 3 4 10 1 7 6 ..." /> <a href="#solveOrPlay"
 						class="button_dark" type="submit" >Ok</a> 
 						
-						<p><label for="numbers" style="color: white;">*visfeilMeldingHer*</label></p>
+						<p><label for="numbers" style="color: white;"></label></p>
 
 
 

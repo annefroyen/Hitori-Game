@@ -40,27 +40,23 @@ public class SolverServlet extends HttpServlet {
 			
              int j = 0;
              
-             //dei fleste brett vil bli løst på under 5 loop'ar
 			while (j<5) {
 				Solver.shadingAndUnshading(board);
 
 				Solver.cornerClose(board);
 				Solver.edgeClose(board);
 				Solver.quadMiddle(board);
-				// Solver.middleClose(board);
 
 				Solver.cornerTechniques(board);
 				Solver.advancedTechniqueOne(board);
 				Solver.advancedTechniqueTwo(board);
 				Solver.advancedTechniqueThree(board);
-				// Solver.advancedTechniqueOneFour(board);
-				// Solver.advancedTechniqueOneFive(board);
+		
 				
 				j++;
 			}
 			
-			
-			MiddleCloseMaze.solveMaze(board);
+			//MiddleCloseMaze.solveMaze(board);
 		
 			
 			request.setAttribute("sbsDisables", checkSolved(board));
@@ -229,7 +225,7 @@ public class SolverServlet extends HttpServlet {
 
 		} else if (request.getParameter("home") != null) {
 			response.sendRedirect("start");
-		}else if(request.getParameter("maze") != null) {
+		}else if(request.getParameter("maze") != null) {	
 			MiddleCloseMaze.solveMaze(board);
 			response.sendRedirect("solver");
 		}
